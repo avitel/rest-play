@@ -1,0 +1,31 @@
+version: '3'
+
+services:
+  db:
+    image: postgres-tasks
+    container_name: postgres-tasks
+    restart: always
+    environment:
+      - POSTGRES_USER=admin
+      - POSTGRES_PASSWORD=admin
+      - POSTGRES_DB=restapi
+    ports:
+      - 5432:5432
+    volumes:
+      - "postgresql-data:/var/lib/postgresql/data"
+  restplay:
+    image: rest-play:latest
+    container_name: restplay
+    expose:
+      - 9000
+    ports:
+      - 9000:9000
+    depends_on:
+      - db
+    links:
+      - db
+
+
+volumes:
+  postgresql-data:
+

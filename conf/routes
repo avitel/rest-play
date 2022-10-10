@@ -1,0 +1,6 @@
+POST    /user/sign-up               controllers.AppController.createUser
+GET     /user/token                 controllers.AppController.getToken
+GET     /user/profile/:userId       controllers.AppController.getUserById(userId: Long)
+POST    /tasks                      controllers.AppController.createTask
+GET     /user/tasks/:userId         controllers.AppController.getAllTasks(userId: Long)
+GET     /tasks/:taskId              controllers.AppController.getTaskById(taskId: Long)
